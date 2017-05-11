@@ -1,0 +1,35 @@
+{
+  "name": "babel-preset-talentpair",
+  "version": "1.0.0",
+  "description": "Talentpair's Base Babel Preset\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talentpair/babel-preset-talentpair.git"
+  },
+  "author": "Talentpair",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/talentpair/babel-preset-talentpair/issues"
+  },
+  "homepage": "https://github.com/talentpair/babel-preset-talentpair#readme",
+  "dependencies": {
+    "babel-plugin-dynamic-import-node": "1.0.2",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-jsx": "6.24.1",
+    "babel-plugin-transform-react-jsx-self": "6.22.0",
+    "babel-plugin-transform-react-jsx-source": "6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.5",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.4.0",
+    "babel-preset-react": "6.24.1",
+    "babel-runtime": "6.23.0"
+  }
+}
