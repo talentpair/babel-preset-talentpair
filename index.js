@@ -1,4 +1,17 @@
-const env = process.env.NODE_ENV;
+"use strict";
+
+const path = require("path");
+
+const env = process.env.BABEL_ENV || process.env.NODE_ENV;
+if (env !== "development" && env !== "test" && env !== "production") {
+  throw new Error(
+    "Using `babel-preset-react-app` requires that you specify `NODE_ENV` or " +
+      '`BABEL_ENV` environment variables. Valid values are "development", ' +
+      '"test", and "production". Instead, received: ' +
+      JSON.stringify(env) +
+      "."
+  );
+}
 
 const plugins = [
   require.resolve("babel-plugin-transform-class-properties"),
@@ -10,7 +23,7 @@ const plugins = [
       helpers: true,
       polyfill: false,
       regenerator: false,
-      moduleName: "babel-runtime"
+      moduleName: path.dirname(require.resolve("babel-runtime/package"))
     }
   ],
   require.resolve("babel-plugin-syntax-dynamic-import")
