@@ -35,7 +35,7 @@ const presets = [
     {
       targets: {
         browsers: [">1%", "last 2 versions", "Firefox ESR"],
-        uglify: false
+        uglify: true
       },
       useBuiltIns: true,
       modules: false
