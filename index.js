@@ -34,8 +34,7 @@ const presets = [
     require.resolve("babel-preset-env"),
     {
       targets: {
-        browsers: [">1%", "last 2 versions", "Firefox ESR"],
-        uglify: true
+        browsers: [">1%", "last 2 versions"],
       },
       useBuiltIns: true,
       modules: false
