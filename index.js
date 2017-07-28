@@ -14,6 +14,8 @@ if (env !== "development" && env !== "test" && env !== "production") {
 }
 
 const plugins = [
+  require.resolve("./use-lodash-es"),
+  require.resolve("babel-plugin-lodash"),
   require.resolve("babel-plugin-transform-class-properties"),
   [require.resolve("babel-plugin-transform-object-rest-spread"), { useBuiltIns: true }],
   [require.resolve("babel-plugin-transform-react-jsx"), { useBuiltIns: true }],
@@ -34,7 +36,7 @@ const presets = [
     require.resolve("babel-preset-env"),
     {
       targets: {
-        browsers: [">1%", "last 2 versions"],
+        browsers: [">1%", "last 2 versions"]
       },
       useBuiltIns: true,
       modules: false
