@@ -14,7 +14,6 @@ if (env !== "development" && env !== "test" && env !== "production") {
 }
 
 const plugins = [
-  require.resolve("./use-lodash-es"),
   require.resolve("babel-plugin-lodash"),
   require.resolve("babel-plugin-transform-class-properties"),
   [require.resolve("babel-plugin-transform-object-rest-spread"), { useBuiltIns: true }],
@@ -61,6 +60,7 @@ if (env === "test") {
   module.exports = {
     presets,
     plugins: plugins.concat([
+      require.resolve("./use-lodash-es"),
       require.resolve("babel-plugin-transform-react-inline-elements"),
       require.resolve("babel-plugin-transform-react-remove-prop-types")
     ])
@@ -69,6 +69,7 @@ if (env === "test") {
   module.exports = {
     presets,
     plugins: plugins.concat([
+      require.resolve("./use-lodash-es"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self")
     ])
