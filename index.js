@@ -14,7 +14,7 @@ if (env !== "development" && env !== "test" && env !== "production") {
 }
 
 const plugins = [
-  require.resolve("babel-plugin-lodash"),
+  [require.resolve("babel-plugin-lodash"), { id: ["lodash", "lodash-es", "recompose"] }],
   require.resolve("babel-plugin-transform-class-properties"),
   [require.resolve("babel-plugin-transform-object-rest-spread"), { useBuiltIns: true }],
   [require.resolve("babel-plugin-transform-react-jsx"), { useBuiltIns: true }],
