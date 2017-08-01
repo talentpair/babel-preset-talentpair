@@ -23,8 +23,7 @@ const plugins = [
     {
       helpers: true,
       polyfill: false,
-      regenerator: false,
-      moduleName: path.dirname(require.resolve("babel-runtime/package"))
+      regenerator: false
     }
   ],
   require.resolve("babel-plugin-syntax-dynamic-import")
