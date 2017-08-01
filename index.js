@@ -51,6 +51,7 @@ if (env === "test") {
       require.resolve("babel-preset-react")
     ],
     plugins: plugins.concat([
+      require.resolve("./use-redux-form-cjs"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self"),
       require.resolve("babel-plugin-dynamic-import-node")
