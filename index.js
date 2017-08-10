@@ -26,7 +26,8 @@ const plugins = [
       regenerator: false
     }
   ],
-  require.resolve("babel-plugin-syntax-dynamic-import")
+  require.resolve("babel-plugin-import-inspector")
+  require.resolve("babel-plugin-syntax-dynamic-import"),
 ];
 
 const presets = [
@@ -51,6 +52,7 @@ if (env === "test") {
     ],
     plugins: plugins.concat([
       require.resolve("./use-redux-form-cjs"),
+      require.resolve("react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self"),
       require.resolve("babel-plugin-dynamic-import-node")
@@ -70,6 +72,7 @@ if (env === "test") {
     presets,
     plugins: plugins.concat([
       require.resolve("./use-lodash-es"),
+      require.resolve("react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self")
     ])
