@@ -72,7 +72,7 @@ if (env === "test") {
     presets,
     plugins: plugins.concat([
       require.resolve("./use-lodash-es"),
-      require.resolve("babel-plugin-react-flow-props-to-prop-types"),
+      // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self")
     ])
