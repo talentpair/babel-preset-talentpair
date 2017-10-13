@@ -25,7 +25,6 @@ const plugins = [
       regenerator: false,
     },
   ],
-  require.resolve("babel-plugin-import-inspector"),
   require.resolve("babel-plugin-syntax-dynamic-import"),
 ];
 
