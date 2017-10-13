@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-talentpair",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "Talentpair's Base Babel Preset\"",
   "main": "index.js",
   "scripts": {
