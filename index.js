@@ -9,7 +9,7 @@ if (env !== "development" && env !== "test" && env !== "production") {
       '`BABEL_ENV` environment variables. Valid values are "development", ' +
       '"test", and "production". Instead, received: ' +
       JSON.stringify(env) +
-      "."
+      ".",
   );
 }
 
@@ -22,11 +22,11 @@ const plugins = [
     {
       helpers: true,
       polyfill: false,
-      regenerator: false
-    }
+      regenerator: false,
+    },
   ],
   require.resolve("babel-plugin-import-inspector"),
-  require.resolve("babel-plugin-syntax-dynamic-import")
+  require.resolve("babel-plugin-syntax-dynamic-import"),
 ];
 
 const presets = [
@@ -34,28 +34,28 @@ const presets = [
     require.resolve("babel-preset-env"),
     {
       targets: {
-        browsers: [">1%", "last 2 versions"]
+        browsers: [">1%", "last 2 versions", "Firefox ESR"],
       },
       useBuiltIns: true,
-      modules: false
-    }
+      modules: false,
+    },
   ],
-  require.resolve("babel-preset-react")
+  require.resolve("babel-preset-react"),
 ];
 
 if (env === "test") {
   module.exports = {
     presets: [
       [require("babel-preset-env").default, { targets: { node: "current" } }],
-      require.resolve("babel-preset-react")
+      require.resolve("babel-preset-react"),
     ],
     plugins: plugins.concat([
       require.resolve("./use-redux-form-cjs"),
       // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self"),
-      require.resolve("babel-plugin-dynamic-import-node")
-    ])
+      require.resolve("babel-plugin-dynamic-import-node"),
+    ]),
   };
 } else if (env === "production") {
   module.exports = {
@@ -64,8 +64,8 @@ if (env === "test") {
       [require.resolve("babel-plugin-lodash"), { id: ["lodash", "lodash-es", "recompose"] }],
       require.resolve("./use-lodash-es"),
       require.resolve("babel-plugin-transform-react-inline-elements"),
-      require.resolve("babel-plugin-transform-react-remove-prop-types")
-    ])
+      require.resolve("babel-plugin-transform-react-remove-prop-types"),
+    ]),
   };
 } else {
   module.exports = {
@@ -75,7 +75,7 @@ if (env === "test") {
       require.resolve("./use-lodash-es"),
       // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
-      require.resolve("babel-plugin-transform-react-jsx-self")
-    ])
+      require.resolve("babel-plugin-transform-react-jsx-self"),
+    ]),
   };
 }
