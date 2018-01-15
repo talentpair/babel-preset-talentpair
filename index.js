@@ -11,18 +11,25 @@ if (env !== "development" && env !== "test" && env !== "production") {
 }
 
 const plugins = [
+  // Necessary to include regardless of the environment because
+  // in practice some other transforms (such as object-rest-spread)
+  // don't work without it: https://github.com/babel/babel/issues/7215
+  require.resolve("babel-plugin-transform-es2015-destructuring"),
   require.resolve("babel-plugin-transform-class-properties"),
-  [require.resolve("babel-plugin-transform-object-rest-spread"), { useBuiltIns: true }],
+  [
+    require.resolve("babel-plugin-transform-object-rest-spread"),
+    { useBuiltIns: true }
+  ],
   [require.resolve("babel-plugin-transform-react-jsx"), { useBuiltIns: true }],
   [
     require.resolve("babel-plugin-transform-runtime"),
     {
       helpers: true,
       polyfill: false,
-      regenerator: false,
-    },
+      regenerator: false
+    }
   ],
-  require.resolve("babel-plugin-syntax-dynamic-import"),
+  require.resolve("babel-plugin-syntax-dynamic-import")
 ];
 
 const presets = [
@@ -30,48 +37,54 @@ const presets = [
     require.resolve("babel-preset-env"),
     {
       targets: {
-        browsers: [">1%", "last 2 versions", "Firefox ESR"],
+        browsers: [">1%", "last 2 versions", "Firefox ESR"]
       },
       useBuiltIns: true,
-      modules: false,
-    },
+      modules: false
+    }
   ],
-  require.resolve("babel-preset-react"),
+  require.resolve("babel-preset-react")
 ];
 
 if (env === "test") {
   module.exports = {
     presets: [
       [require("babel-preset-env").default, { targets: { node: "current" } }],
-      require.resolve("babel-preset-react"),
+      require.resolve("babel-preset-react")
     ],
     plugins: plugins.concat([
       require.resolve("./use-redux-form-cjs"),
       // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self"),
-      require.resolve("babel-plugin-dynamic-import-node"),
-    ]),
+      require.resolve("babel-plugin-dynamic-import-node")
+    ])
   };
 } else if (env === "production") {
   module.exports = {
     presets,
     plugins: plugins.concat([
-      [require.resolve("babel-plugin-lodash"), { id: ["lodash", "lodash-es", "recompose"] }],
+      [
+        require.resolve("babel-plugin-lodash"),
+        { id: ["lodash", "lodash-es", "recompose"] }
+      ],
       require.resolve("./use-lodash-es"),
       require.resolve("babel-plugin-transform-react-inline-elements"),
-      require.resolve("babel-plugin-transform-react-remove-prop-types"),
-    ]),
+      require.resolve("babel-plugin-transform-react-remove-prop-types")
+    ])
   };
 } else {
   module.exports = {
     presets,
     plugins: plugins.concat([
-      [require.resolve("babel-plugin-lodash"), { id: ["lodash", "lodash-es", "recompose"] }],
+      [
+        require.resolve("babel-plugin-lodash"),
+        { id: ["lodash", "lodash-es", "recompose"] }
+      ],
       require.resolve("./use-lodash-es"),
       // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
-      require.resolve("babel-plugin-transform-react-jsx-self"),
-    ]),
+      require.resolve("babel-plugin-transform-react-jsx-self")
+    ])
   };
 }
