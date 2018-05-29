@@ -37,7 +37,7 @@ const presets = [
     require.resolve("babel-preset-env"),
     {
       targets: {
-        browsers: [">1%", "last 2 versions", "Firefox ESR"]
+        browsers: [">0.5%", "last 2 versions", "Firefox ESR", "not dead"]
       },
       useBuiltIns: true,
       modules: false
@@ -54,7 +54,6 @@ if (env === "test") {
     ],
     plugins: plugins.concat([
       require.resolve("./use-redux-form-cjs"),
-      // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self"),
       require.resolve("babel-plugin-dynamic-import-node")
@@ -82,7 +81,6 @@ if (env === "test") {
         { id: ["lodash", "lodash-es", "recompose"] }
       ],
       require.resolve("./use-lodash-es"),
-      // require.resolve("babel-plugin-react-flow-props-to-prop-types"),
       require.resolve("babel-plugin-transform-react-jsx-source"),
       require.resolve("babel-plugin-transform-react-jsx-self")
     ])
